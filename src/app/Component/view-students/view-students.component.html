@@ -1,0 +1,93 @@
+<div style="margin-left: 20px; margin-top: 20px;">
+  <div class="container-fluid">
+
+    <div class="row">
+      <!-- Left Column: Table Section -->
+      <div [ngClass]="{'col-md-8': isFormVisible}">
+        <div class="mb-3 row">
+          <div class="col-xs-3 col-sm-auto">
+            <button class="btn btn-primary" (click)="addStudentModal()">Add</button>
+          </div>
+        </div>
+
+        <form>
+          <div class="mb-3 row">
+            <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Full text search:</label>
+            <div class="col-xs-3 col-sm-auto">
+              <input type="text" [formControl]="searchControl" (input)="searchStudent(); updatePagedStudents()" placeholder="Search">
+            </div>
+          </div>
+        </form>
+
+
+        <div class="dataTable">
+          <div class="tableFixHead">
+            <table id="detailDataTbale" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th (click)="sortTable('firstName')">First Name</th>
+                  <th (click)="sortTable('lastName')">Last Name</th>
+                  <th (click)="sortTable('mobile')">Mobile</th>
+                  <th (click)="sortTable('email')">Email</th>
+                  <th (click)="sortTable('nic')">NIC</th>
+                  <th>Profile Image</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- <tr *ngFor="let student of students" (click)="selectStudent(student)"> -->
+                  <tr *ngFor="let student of pagedStudents | paginate: { itemsPerPage: 5, currentPage: page, totalItems: students.length, id: 'students-pagination' }" (click)="selectStudent(student)">
+                  <td>{{ student.firstName }}</td>
+                  <td>{{ student.lastName }}</td>
+                  <td>{{ student.mobile }}</td>
+                  <td>{{ student.email }}</td>
+                  <td>{{ student.nic }}</td>
+                  <td>{{ student.profileImage}}</td>
+                  <!-- <td>{{ student.dateOfBirth | date:'yyyy-MM-dd' }}</td>
+                  <td>{{ student.address }}</td> -->
+                  <td>
+                    <button (click)="deleteStudent(student.id)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Update the pagination-controls -->
+        <pagination-controls (pageChange)="updatePage($event)" id="students-pagination"></pagination-controls>
+
+      </div>
+      <div class="col-md-4">
+        <div *ngIf="isFormVisible">
+          <!-- Your student form component here -->
+          <app-view-student [selectedStudent]="selectedStudent"></app-view-student>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>NIC</th>
+        <th>Date Of Birth</th>
+        <th>Address</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.firstName }}</td>
+        <td>{{ student.lastName }}</td>
+        <td>{{ student.mobile }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.nic }}</td>
+        <td>{{ student.dateOfBirth }}</td>
+        <td>{{ student.address }}</td>
+    </tr>
+    </tbody>
+  </table> -->

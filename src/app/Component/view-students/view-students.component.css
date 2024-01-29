@@ -1,0 +1,59 @@
+.dataTable {
+    width: 1000px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.containerWithScrollbar {
+    max-height: 500px;
+    overflow: auto;
+}
+
+form {
+    margin-bottom: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.containerWithScrollbar {
+    padding-top: 20px;
+}
+
+.tableFixHead {
+    width: 1000px;
+    overflow-y: auto;
+    height: max-content;
+}
+
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+}
+
+/* Just common table stuff. Really. */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: #eee;
+}
+
+
+table {
+    table-layout: fixed;
+}
+
+td {
+    width: 1px;
+    white-space: nowrap;
+}

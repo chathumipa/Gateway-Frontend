@@ -1,0 +1,64 @@
+<div style="margin-left: 10px; margin-top: 20px; width: 480px;">
+    <div class="mb-3 row">
+        <h2 style="text-align: center;">View Student </h2>
+    </div>
+
+    <div class="container mt-4">
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name:</label>
+                        <input type="text" class="form-control" id="firstName" [(ngModel)]="editedStudent.firstName" [ngModelOptions]="{standalone: true}" [readonly]="!isEditMode">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name:</label>
+                        <input type="text" class="form-control" id="lastName" [(ngModel)]="editedStudent.lastName" [ngModelOptions]="{standalone: true}" [readonly]="!isEditMode">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="mobile" class="form-label">Mobile:</label>
+                        <input type="text" class="form-control" id="mobile" [(ngModel)]="editedStudent.mobile" [ngModelOptions]="{standalone: true}" [readonly]="!isEditMode">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="text" class="form-control" id="email" [(ngModel)]="editedStudent.email" [ngModelOptions]="{standalone: true}" [readonly]="!isEditMode">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="nic" class="form-label">NIC:</label>
+                        <input type="text" class="form-control" id="nic" [(ngModel)]="editedStudent.nic" [ngModelOptions]="{standalone: true}" [readonly]="!isEditMode">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="dateOfBirth" class="form-label">Date of Birth:</label>
+                        <input type="text" class="form-control" id="dateOfBirth" [(ngModel)]="editedStudent.dateOfBirth" [ngModelOptions]="{standalone: true}"
+                        [readonly]="!isEditMode">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="address" class="form-label">Address:</label>
+                <textarea class="form-control" id="address" rows="3" [(ngModel)]="editedStudent.address" [ngModelOptions]="{standalone: true}" [readonly]="!isEditMode"></textarea>
+            </div>
+            <div class="mt-3">
+                <button *ngIf="!isEditMode" type="button" class="btn btn-primary" (click)="editStudent()">Edit</button>&nbsp;
+                <button *ngIf="isEditMode" type="button" class="btn btn-success" (click)="updateStudent()">Save</button>            </div>
+        </form>
+    </div>
+
+</div>

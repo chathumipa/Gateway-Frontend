@@ -1,0 +1,46 @@
+<div tabindex="-1" role="dialog">
+    <div class="modal-header">
+        <h4 class="modal-title">Add Student</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="addStudentForm">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" formControlName="firstName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" formControlName="lastName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="mobile">Mobile:</label>
+                <input type="text" id="mobile" formControlName="mobile" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" formControlName="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="nic">NIC:</label>
+                <input type="text" id="nic" formControlName="nic" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="dateOfBirth">Date of Birth:</label>
+                <input type="date" id="dateOfBirth" formControlName="dateOfBirth" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" formControlName="address" class="form-control"></textarea>
+            </div>
+            <!-- Add other form controls as needed -->
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss()">Close</button>
+                <button type="button" class="btn btn-primary" (click)="addStudent()">Add Student</button>
+            </div>
+        </form>
+    </div>
+</div>
